@@ -19,8 +19,6 @@ const server = new ApolloServer({
   },
 });
 
-// const PORT = 4005;
-
 server.listen(4003).then(({ url }) => {
   console.log(`Iniciou na porta ${url}`);
 });
