@@ -3,22 +3,41 @@ import { ApolloServer, gql } from 'apollo-server';
 const server = new ApolloServer({
   typeDefs: gql`
     type Query {
-      hello: String
-      hi: String
+      user: User!
+      users: [User!]!
+    }
+    type User {
+      id: ID!
+      userName: String!
     }
   `,
   resolvers: {
     Query: {
-      hello: async () => {
-        return 'Hello again';
+      user: () => {
+        return {
+          id: 'asd8708',
+          userName: 'otaviomiranda',
+        };
       },
-      hi: () => {
-        return 'Hi';
+      users: () => {
+        return [
+          {
+            id: '1',
+            userName: 'otaviomiranda1',
+          },
+          {
+            id: '2',
+            userName: 'otaviomiranda2',
+          },
+          {
+            id: '3',
+            userName: 'otaviomiranda3',
+          },
+        ];
       },
     },
   },
 });
-
 server.listen(4003).then(({ url }) => {
   console.log(`Iniciou na porta ${url}`);
 });
