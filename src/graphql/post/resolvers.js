@@ -10,6 +10,7 @@ const posts = async (_, __, { getPosts }) => {
 
 export const postResolvers = {
   Query: { post, posts },
+  //serve para resolver dados que não vem da api por esse motivo tem essa função criada.
   Post: {
     unixTimestamp: ({ createdAt }) => {
       const timestamp = new Date(createdAt).getTime() / 1000;
