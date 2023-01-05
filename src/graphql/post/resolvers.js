@@ -1,25 +1,11 @@
-const posts = () => {
-  return [
-    {
-      id: '1',
-      title: 'post 1',
-    },
-    {
-      id: '2',
-      title: 'post 2',
-    },
-    {
-      id: '3',
-      title: 'post 3',
-    },
-  ];
+const post = async (_, { id }, { getPosts }) => {
+  const response = await getPosts('/' + id);
+  return response.json();
 };
 
-const post = () => {
-  return {
-    id: '1',
-    title: 'Minha primeira postagem',
-  };
+const posts = async (_, __, { getPosts }) => {
+  const response = await getPosts();
+  return response.json();
 };
 
 export const postResolvers = {
