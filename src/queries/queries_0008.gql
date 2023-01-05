@@ -1,3 +1,4 @@
+# input type limit inicial e limite final paginação
 query GET_USERS(
   $sort: String = "indexRef"
   $order: String = "desc"
