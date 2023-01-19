@@ -5,6 +5,7 @@ export const postTypeDefs = gql`
     post(id: ID!): PostResult!
     posts(input: ApiFiltersInput): [Post!]!
   }
+  #disparando mensagem de error
   union PostResult = PostNotFoundError | Post
   type PostNotFoundError {
     statusCode: Int!
