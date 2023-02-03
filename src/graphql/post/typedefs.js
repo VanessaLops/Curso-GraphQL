@@ -1,15 +1,10 @@
+
 import { gql } from 'apollo-server-core';
 
 export const postTypeDefs = gql`
   extend type Query {
-    post(id: ID!): PostResult!
+    post(id: ID!): Post!
     posts(input: ApiFiltersInput): [Post!]!
-  }
-  #disparando mensagem de error
-  union PostResult = PostNotFoundError | Post
-  type PostNotFoundError {
-    statusCode: Int!
-    message: String!
   }
   type Post {
     id: ID!
