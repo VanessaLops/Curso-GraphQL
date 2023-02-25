@@ -19,3 +19,4 @@ npm i -D nodemon
 Rodar projeto
 
 npm run dev
+npm run server - da start no servidor

@@ -1,6 +1,5 @@
-const post = async (_, { id }, { getPosts }) => {
-  const response = await getPosts('/' + id);
-  const post = await response.json();
+const post = async (_, { id }, { dataSources }) => {
+  const post = dataSources.postAPi.getPost(id);
   return post;
 };
 

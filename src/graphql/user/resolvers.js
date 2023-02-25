@@ -3,16 +3,18 @@ const users = async (_, { input }, { getUsers }) => {
   const users = await getUsers('/?' + apiFiltersInput);
   return users.json();
 };
-const user = async (_, { id, teste }, { getUsers }) => {
-  console.log('TESTE', teste);
 
+const user = async (_, { id }, { getUsers }) => {
   const response = await getUsers('/' + id);
   const user = await response.json();
   return user;
 };
+
+const posts = ({ id }, _, { postDataLoader }) => {
+  return postDataLoader.load(id);
+};
+
 export const userResolvers = {
-  Query: {
-    user,
-    users,
-  },
+  Query: { user, users },
+  User: { posts },
 };
